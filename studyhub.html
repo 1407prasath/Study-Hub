@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="KalviDeck — Tamil Nadu 10th, 11th, 12th & College Study Materials, Public Exam Question Papers, Answer Keys & Online One-Mark Practice Tests." />
+  <title>KalviDeck — TN Samacheer &amp; College Study Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #faf8f5;
+      --surface: #ffffff;
+      --surface-soft: #f3f0ea;
+      --surface-sage: #eef4f1;
+      --ink: #161b18;
+      --ink-muted: #57605b;
+      --border: #e4dfd5;
+      --border-strong: #cfc8ba;
+      --brand: #0d6e5b;
+      --brand-dark: #084c3f;
+      --brand-soft: #d9f0ea;
+      --coral: #d95d39;
+      --coral-soft: #fbe6df;
+      --gold: #b45309;
+      --gold-soft: #fef3c7;
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+      --shadow-sm: 0 2px 8px rgba(22, 27, 24, 0.04);
+      --shadow-md: 0 10px 28px rgba(22, 27, 24, 0.07);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: var(--bg);
+      background-image: radial-gradient(#dcd6c8 0.75px, transparent 0.75px);
+      background-size: 22px 22px;
+      color: var(--ink);
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Live Exam Strip */
+    .flash-strip {
+      background: var(--ink);
+      color: #f8fafc;
+      font-size: 0.8rem;
+      padding: 0.45rem 1rem;
+    }
+    .flash-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+    .flash-pill {
+      background: var(--coral);
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
+      padding: 0.16rem 0.55rem;
+      border-radius: 999px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .flash-msg {
+      flex: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: #e2e8f0;
+    }
+    .flash-date {
+      color: #94a3b8;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.74rem;
+      white-space: nowrap;
+    }
+    @media (max-width: 640px) {
+      .flash-date { display: none; }
+    }
+
+    /* Floating Glass Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(250, 248, 245, 0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0.8rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+      color: var(--ink);
+    }
+    .logo-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--brand);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 1.05rem;
+      box-shadow: 0 4px 12px rgba(13, 110, 91, 0.25);
+    }
+    .logo-text {
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: -0.03em;
+    }
+    .logo-text span { color: var(--brand); }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .saved-toggle {
+      background: var(--surface);
+      border: 1.5px solid var(--border-strong);
+      color: var(--ink);
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: all 0.2s;
+    }
+    .saved-toggle.active {
+      background: var(--gold-soft);
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+    .quiz-jump {
+      background: var(--brand);
+      color: #fff;
+      text-decoration: none;
+      padding: 0.48rem 0.95rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+    .quiz-jump:hover { background: var(--brand-dark); }
+
+    /* Hero + Bento Class Selector */
+    .hero-wrap {
+      max-width: 1200px;
+      margin: 1.35rem auto 1.25rem;
+      padding: 0 1rem;
+    }
+    .hero-bento {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.65rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .hero-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1.35rem;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--brand-soft);
+      color: var(--brand-dark);
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      margin-bottom: 0.55rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .hero-top h1 {
+      font-size: clamp(1.45rem, 3.4vw, 2.15rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      max-width: 680px;
+    }
+    .hero-top p {
+      color: var(--ink-muted);
+      font-size: 0.92rem;
+      margin-top: 0.4rem;
+      max-width: 620px;
+    }
+
+    /* Bento Class Tiles */
+    .bento-classes {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 0.65rem;
+    }
+    @media (max-width: 960px) {
+      .bento-classes { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 520px) {
+      .bento-classes { grid-template-columns: repeat(2, 1fr); }
+    }
+    .class-tile {
+      background: var(--surface-soft);
+      border: 1.5px solid transparent;
+      border-radius: var(--radius-md);
+      padding: 0.8rem 0.85rem;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .class-tile:hover {
+      background: #fff;
+      border-color: var(--border-strong);
+      transform: translateY(-2px);
+    }
+    .class-tile.active {
+      background: var(--brand);
+      color: #fff;
+      box-shadow: 0 6px 16px rgba(13, 110, 91, 0.24);
+    }
+    .tile-title {
+      font-weight: 800;
+      font-size: 0.95rem;
+    }
+    .tile-sub {
+      font-size: 0.74rem;
+      opacity: 0.8;
+      margin-top: 0.15rem;
+    }
+
+    /* Search & Filter Command Bar */
+    .command-bar {
+      margin-top: 1.15rem;
+      padding-top: 1.15rem;
+      border-top: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 2.2fr 1fr 1fr;
+      gap: 0.65rem;
+    }
+    @media (max-width: 768px) {
+      .command-bar { grid-template-columns: 1fr; }
+    }
+    .search-input-wrap {
+      position: relative;
+    }
+    .search-input-wrap input {
+      width: 100%;
+      background: var(--bg);
+      border: 1.5px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      padding: 0.68rem 0.95rem;
+      font-family: inherit;
+      font-size: 0.9rem;
+      color: var(--ink);
+    }
+    .search-input-wrap input:focus, .command-bar select:focus {
+      outline: none;
+      border-color: var(--brand);
+      background: #fff;
+    }
+    .command-bar select {
+      width: 100%;
+      background: var(--bg);
+      border: 1.5px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      padding: 0.68rem 0.85rem;
+      font-family: inherit;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    /* Main Content + Sidebar Grid */
+    .workspace {
+      max-width: 1200px;
+      margin: 0 auto 3rem;
+      padding: 0 1rem;
+      display: grid;
+      grid-template-columns: 1fr 325px;
+      gap: 1.35rem;
+      align-items: start;
+    }
+    @media (max-width: 940px) {
+      .workspace { grid-template-columns: 1fr; }
+    }
+
+    /* Clean AdSense Placeholders */
+    .ad-banner {
+      background: var(--surface);
+      border: 1.5px dashed var(--border-strong);
+      border-radius: var(--radius-md);
+      padding: 0.8rem;
+      text-align: center;
+      color: var(--ink-muted);
+      font-size: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    /* Section Header */
+    .sec-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.9rem;
+      gap: 0.75rem;
+    }
+    .sec-bar h2 {
+      font-size: 1.2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    .count-chip {
+      background: var(--surface);
+      border: 1px solid var(--border-strong);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.76rem;
+      font-weight: 700;
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      color: var(--ink-muted);
+    }
+
+    /* Bento Cards Grid for Study Materials */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+    .doc-card {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.15rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 0.9rem;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    }
+    .doc-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--border-strong);
+    }
+    .doc-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.5rem;
+      margin-bottom: 0.55rem;
+    }
+    .pill-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+    .chip {
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 0.18rem 0.55rem;
+      border-radius: 6px;
+      letter-spacing: 0.02em;
+    }
+    .chip-class { background: var(--brand-soft); color: var(--brand-dark); }
+    .chip-sub { background: var(--surface-soft); color: var(--ink); }
+    .chip-tm { background: var(--coral-soft); color: #9a3412; }
+    .chip-em { background: #e0f2fe; color: #075985; }
+    .chip-new { background: var(--coral); color: #fff; }
+
+    .star-btn {
+      background: var(--surface-soft);
+      border: none;
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      color: var(--ink-muted);
+      flex-shrink: 0;
+    }
+    .star-btn.saved {
+      background: var(--gold-soft);
+      color: var(--gold);
+    }
+
+    .doc-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.38;
+      margin-bottom: 0.4rem;
+    }
+    .doc-author {
+      font-size: 0.78rem;
+      color: var(--ink-muted);
+    }
+
+    .doc-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.6rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border);
+    }
+    .file-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--ink-muted);
+    }
+    .btn-download {
+      background: var(--ink);
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.5rem 0.9rem;
+      border-radius: 10px;
+      transition: background 0.18s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .btn-download:hover {
+      background: var(--brand);
+    }
+
+    /* Interactive 1-Mark Practice Arena */
+    .quiz-panel {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.35rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .quiz-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.9rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .quiz-header h2 {
+      font-size: 1.18rem;
+      font-weight: 800;
+    }
+    .quiz-toolbar {
+      display: flex;
+      gap: 0.55rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+    .quiz-toolbar select {
+      flex: 1;
+      min-width: 210px;
+      padding: 0.6rem 0.8rem;
+      border: 1.5px solid var(--border-strong);
+      border-radius: 10px;
+      background: var(--bg);
+      font-family: inherit;
+      font-weight: 600;
+      font-size: 0.86rem;
+    }
+    .btn-primary {
+      background: var(--brand);
+      color: #fff;
+      border: none;
+      padding: 0.6rem 1.05rem;
+      border-radius: 10px;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+    .btn-primary:hover { background: var(--brand-dark); }
+    .btn-ghost {
+      background: var(--surface-soft);
+      color: var(--ink);
+      border: 1px solid var(--border-strong);
+      padding: 0.6rem 0.9rem;
+      border-radius: 10px;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+
+    .q-box {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 0.95rem;
+      margin-bottom: 0.8rem;
+    }
+    .q-title {
+      font-weight: 700;
+      font-size: 0.92rem;
+      margin-bottom: 0.6rem;
+    }
+    .opt-row {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: 9px;
+      padding: 0.5rem 0.75rem;
+      margin-bottom: 0.4rem;
+      font-size: 0.86rem;
+      cursor: pointer;
+      transition: border-color 0.15s;
+    }
+    .opt-row:hover { border-color: var(--brand); }
+    .opt-row.is-correct {
+      background: #dcfce7;
+      border-color: #16a34a;
+      color: #14532d;
+      font-weight: 700;
+    }
+    .opt-row.is-wrong {
+      background: #fee2e2;
+      border-color: #dc2626;
+      color: #7f1d1d;
+    }
+
+    .result-card {
+      display: none;
+      margin-top: 0.9rem;
+      background: var(--surface-sage);
+      border: 1.5px solid var(--brand);
+      color: var(--brand-dark);
+      padding: 0.9rem 1rem;
+      border-radius: var(--radius-md);
+      font-weight: 800;
+      font-size: 0.92rem;
+    }
+
+    /* Sidebar Bento Widgets */
+    .side-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 1.15rem;
+    }
+    .community-card {
+      background: linear-gradient(145deg, var(--brand) 0%, var(--brand-dark) 100%);
+      color: #fff;
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+      box-shadow: var(--shadow-md);
+    }
+    .community-card h3 {
+      font-size: 1.08rem;
+      font-weight: 800;
+      margin-bottom: 0.35rem;
+    }
+    .community-card p {
+      font-size: 0.83rem;
+      color: #d9f0ea;
+      margin-bottom: 0.9rem;
+    }
+    .community-btn {
+      display: block;
+      background: #fff;
+      color: var(--brand-dark);
+      text-align: center;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 0.85rem;
+      padding: 0.65rem;
+      border-radius: 10px;
+    }
+
+    .side-box {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.1rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .side-box h3 {
+      font-size: 0.95rem;
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.55rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .quick-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+    .quick-links a {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-decoration: none;
+      color: var(--ink);
+      background: var(--bg);
+      padding: 0.55rem 0.75rem;
+      border-radius: 9px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      transition: background 0.15s;
+    }
+    .quick-links a:hover {
+      background: var(--brand-soft);
+      color: var(--brand-dark);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--surface);
+      border-top: 1.5px solid var(--border);
+      padding: 1.75rem 1rem;
+      text-align: center;
+      color: var(--ink-muted);
+      font-size: 0.82rem;
+    }
+    .admin-trigger {
+      margin-top: 0.75rem;
+      background: var(--surface-soft);
+      border: 1px solid var(--border-strong);
+      color: var(--ink);
+      padding: 0.4rem 0.85rem;
+      border-radius: 999px;
+      font-family: inherit;
+      font-size: 0.76rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* Mobile Post Generator Modal */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(22, 27, 24, 0.72);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      z-index: 100;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-card {
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      max-width: 520px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 1.35rem;
+      border: 1.5px solid var(--border-strong);
+    }
+    .modal-card h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 0.4rem; }
+    .field { margin-bottom: 0.65rem; }
+    .field label { display: block; font-size: 0.78rem; font-weight: 700; margin-bottom: 0.2rem; color: var(--ink-muted); }
+    .field input, .field select {
+      width: 100%;
+      padding: 0.55rem 0.7rem;
+      border: 1.5px solid var(--border-strong);
+      border-radius: 9px;
+      font-family: inherit;
+      font-size: 0.86rem;
+    }
+    .code-area {
+      width: 100%;
+      height: 105px;
+      margin-top: 0.65rem;
+      padding: 0.6rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      background: var(--bg);
+      border: 1.5px solid var(--border-strong);
+      border-radius: 9px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Live Alert Bar -->
+  <div class="flash-strip">
+    <div class="flash-inner">
+      <span class="flash-pill">Exam Alert</span>
+      <span class="flash-msg">12th &amp; 10th Public Model Question Papers, Official Answer Keys &amp; Unit Guides Updated</span>
+      <span class="flash-date" id="liveDate"></span>
+    </div>
+  </div>
+
+  <!-- Modern Glass Header -->
+  <header>
+    <div class="nav-container">
+      <a class="logo" href="#">
+        <div class="logo-mark">K</div>
+        <div class="logo-text">Kalvi<span>Deck</span></div>
+      </a>
+      <div class="header-actions">
+        <button class="saved-toggle" id="savedToggleBtn" onclick="toggleSavedOnly()">
+          <span>&#9733;</span> Saved (<span id="savedCount">0</span>)
+        </button>
+        <a class="quiz-jump" href="#practiceArena">1-Mark Quiz</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero + Bento Class Navigation -->
+  <section class="hero-wrap">
+    <div class="hero-bento">
+      <div class="hero-top">
+        <div>
+          <div class="eyebrow">Tamil Nadu School &amp; College Study Hub</div>
+          <h1>Curated Question Papers, Answer Keys &amp; Smart Exam Guides</h1>
+          <p>Filter by class, Tamil or English medium, and subject &mdash; download verified study PDFs or practice instant 1-mark tests.</p>
+        </div>
+      </div>
+
+      <!-- Bento Class Tiles -->
+      <div class="bento-classes" id="classTiles">
+        <button class="class-tile active" data-class="all">
+          <span class="tile-title">All Classes</span>
+          <span class="tile-sub" id="cnt-all">Full Archive</span>
+        </button>
+        <button class="class-tile" data-class="12th">
+          <span class="tile-title">12th Std (+2)</span>
+          <span class="tile-sub" id="cnt-12th">Public &amp; PTA</span>
+        </button>
+        <button class="class-tile" data-class="11th">
+          <span class="tile-title">11th Std (+1)</span>
+          <span class="tile-sub" id="cnt-11th">Model &amp; Guides</span>
+        </button>
+        <button class="class-tile" data-class="10th">
+          <span class="tile-title">10th SSLC</span>
+          <span class="tile-sub" id="cnt-10th">Notes &amp; Keys</span>
+        </button>
+        <button class="class-tile" data-class="9th">
+          <span class="tile-title">8th &amp; 9th Std</span>
+          <span class="tile-sub" id="cnt-9th">Term Guides</span>
+        </button>
+        <button class="class-tile" data-class="College">
+          <span class="tile-title">College CS/IT</span>
+          <span class="tile-sub" id="cnt-College">Notes &amp; Labs</span>
+        </button>
+      </div>
+
+      <!-- Search & Filter Command Bar -->
+      <div class="command-bar">
+        <div class="search-input-wrap">
+          <input type="text" id="searchInput" placeholder="Search subject, chapter, question paper or teacher name..." />
+        </div>
+        <select id="mediumSelect">
+          <option value="all">All Mediums (TM &amp; EM)</option>
+          <option value="English Medium">English Medium</option>
+          <option value="Tamil Medium">Tamil Medium (தமிழ்)</option>
+        </select>
+        <select id="subjectSelect">
+          <option value="all">All Subjects</option>
+          <option value="Maths">Mathematics</option>
+          <option value="Physics">Physics</option>
+          <option value="Chemistry">Chemistry</option>
+          <option value="Computer Science">Computer Science</option>
+          <option value="Biology">Biology</option>
+          <option value="Science">Science (10th)</option>
+          <option value="Social Science">Social Science</option>
+          <option value="Tamil">Tamil</option>
+          <option value="English">English</option>
+          <option value="Commerce">Commerce &amp; Accountancy</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Workspace -->
+  <div class="workspace">
+    <main>
+      <!-- AdSense Top Leaderboard -->
+      <div class="ad-banner">
+        Sponsored &mdash; Google AdSense Responsive Leaderboard Slot
+      </div>
+
+      <!-- Materials Header -->
+      <div class="sec-bar">
+        <h2 id="sectionHeading">Latest Study Materials &amp; Question Papers</h2>
+        <span class="count-chip" id="resultChip">0 PDFs</span>
+      </div>
+
+      <!-- Bento Cards Grid -->
+      <div class="cards-grid" id="cardsContainer"></div>
+
+      <!-- AdSense Mid In-Feed Slot -->
+      <div class="ad-banner">
+        Sponsored &mdash; Google AdSense In-Feed Native Slot
+      </div>
+
+      <!-- Interactive 1-Mark Online Practice Arena -->
+      <section class="quiz-panel" id="practiceArena">
+        <div class="quiz-header">
+          <div>
+            <h2>1-Mark Online Practice Arena</h2>
+            <p style="font-size:0.82rem; color:var(--ink-muted);">Test your exam readiness with instant answer evaluation</p>
+          </div>
+        </div>
+
+        <div class="quiz-toolbar">
+          <select id="quizTopic" onchange="renderQuiz()">
+            <option value="12cs">12th Computer Science &mdash; Python &amp; SQL</option>
+            <option value="10sci">10th Science &mdash; Physics &amp; Chemistry</option>
+            <option value="12phy">12th Physics &mdash; Electrostatics &amp; Optics</option>
+            <option value="12mat">12th Mathematics &mdash; Matrices &amp; Calculus</option>
+          </select>
+          <button class="btn-primary" onclick="evaluateQuiz()">Check Score</button>
+          <button class="btn-ghost" onclick="renderQuiz()">Reset</button>
+        </div>
+
+        <div id="quizBody"></div>
+        <div class="result-card" id="quizResult"></div>
+      </section>
+    </main>
+
+    <!-- Right Bento Sidebar -->
+    <aside class="side-stack">
+      <!-- WhatsApp Channel Card -->
+      <div class="community-card">
+        <h3>Exam Alerts on WhatsApp</h3>
+        <p>Instant notifications for Public Exam Question Papers, Official Answer Keys &amp; Slow-Learner Guides.</p>
+        <a class="community-btn" id="waBtn" href="https://whatsapp.com/channel/" target="_blank" rel="noopener">Join Free Channel &rarr;</a>
+      </div>
+
+      <!-- AdSense Sidebar 300x250 -->
+      <div class="ad-banner" style="min-height:230px; display:grid; place-items:center; margin-bottom:0;">
+        Sponsored &mdash; Google AdSense 300&times;250 Rectangle
+      </div>
+
+      <!-- Quick Exam Shortcuts -->
+      <div class="side-box">
+        <h3>Quick Exam Shortcuts</h3>
+        <ul class="quick-links">
+          <li><a href="#" onclick="applyShortcut('12th', 'all'); return false;"><span>12th Public Model &amp; PTA Keys</span><span>&rarr;</span></a></li>
+          <li><a href="#" onclick="applyShortcut('10th', 'all'); return false;"><span>10th SSLC All Subject Guides</span><span>&rarr;</span></a></li>
+          <li><a href="#" onclick="applyShortcut('11th', 'all'); return false;"><span>11th Standard Important Questions</span><span>&rarr;</span></a></li>
+          <li><a href="#" onclick="applyShortcut('all', 'Computer Science'); return false;"><span>Computer Science &amp; Python PDFs</span><span>&rarr;</span></a></li>
+          <li><a href="#" onclick="applyShortcut('College', 'all'); return false;"><span>College CS / IT Notes &amp; Code</span><span>&rarr;</span></a></li>
+        </ul>
+      </div>
+
+      <!-- Affiliate Exam Guides Shelf -->
+      <div class="side-box">
+        <h3>Recommended Exam Guides</h3>
+        <ul class="quick-links" id="affiliateBox"></ul>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; <span id="footerYear"></span> KalviDeck Educational Portal. Resources credited to respective teachers &amp; authors.</p>
+    <p style="font-size:0.75rem; margin-top:0.25rem;">Affiliate Disclosure: External book links may earn a small commission at zero extra cost to students.</p>
+    <button class="admin-trigger" onclick="toggleAdminModal(true)">+ Add New Study Material (Post Generator)</button>
+  </footer>
+
+  <!-- Mobile Admin Post Generator Modal -->
+  <div class="modal-overlay" id="adminModal">
+    <div class="modal-card">
+      <h3>New Study Material Code Generator</h3>
+      <p style="font-size:0.8rem; color:var(--ink-muted); margin-bottom:0.85rem;">
+        Enter your Google Drive PDF link below, copy the generated code, and paste it at the top of <b>MATERIALS_DATA</b> in GitHub.
+      </p>
+      <div class="field">
+        <label>Title</label>
+        <input type="text" id="inTitle" placeholder="e.g., 12th Chemistry Public Exam Answer Key 2026" />
+      </div>
+      <div class="field">
+        <label>Class</label>
+        <select id="inClass">
+          <option value="12th">12th</option>
+          <option value="11th">11th</option>
+          <option value="10th">10th</option>
+          <option value="9th">9th</option>
+          <option value="College">College</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Subject</label>
+        <input type="text" id="inSub" placeholder="e.g., Chemistry / Maths / Computer Science" />
+      </div>
+      <div class="field">
+        <label>Medium</label>
+        <select id="inMed">
+          <option value="English Medium">English Medium</option>
+          <option value="Tamil Medium">Tamil Medium</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Prepared By (Teacher / Dept)</label>
+        <input type="text" id="inAuthor" placeholder="e.g., Mr. R. Karthik, PG Asst" />
+      </div>
+      <div class="field">
+        <label>Google Drive PDF Link</label>
+        <input type="url" id="inUrl" placeholder="https://drive.google.com/file/d/..." />
+      </div>
+      <div style="display:flex; gap:0.5rem;">
+        <button class="btn-primary" onclick="buildSnippet()">Generate &amp; Copy</button>
+        <button class="btn-ghost" onclick="toggleAdminModal(false)">Close</button>
+      </div>
+      <textarea class="code-area" id="outCode" readonly placeholder="Generated snippet appears here..."></textarea>
+    </div>
+  </div>
+
+  <script>
+    // =========================================================================
+    // PORTAL CONFIGURATION: Edit your WhatsApp Channel & Amazon Affiliate Tag
+    // =========================================================================
+    const CONFIG = {
+      whatsappChannel: "https://whatsapp.com/channel/",
+      amazonTag: "kalvideck-21"
+    };
+
+    // =========================================================================
+    // STUDY MATERIALS DATABASE: Add new Google Drive PDF links at the top!
+    // =========================================================================
+    const MATERIALS_DATA = [
+      {
+        id: "m1",
+        title: "12th Computer Science — Complete Public Exam Study Guide & Golden 5-Marks",
+        classLevel: "12th",
+        subject: "Computer Science",
+        medium: "English Medium",
+        author: "CS Faculty, Vellore",
+        date: "Nov 2026",
+        isNew: true,
+        pdfUrl: "https://drive.google.com/"
+      },
+      {
+        id: "m2",
+        title: "12th Mathematics — Vol 1 & Vol 2 Formula Book + One-Mark Bank (தமிழ் வழி)",
+        classLevel: "12th",
+        subject: "Maths",
+        medium: "Tamil Medium",
+        author: "Mr. S. Murugan, GHSS",
+        date: "Nov 2026",
+        isNew: true,
+        pdfUrl: "https://drive.google.com/"
+      },
+      {
+        id: "m3",
+        title: "10th Science — Public Exam Minimum Learning Material (Slow Learners Guide)",
+        classLevel: "10th",
+        subject: "Science",
+        medium: "English Medium",
+        author: "Science Teachers Forum",
+        date: "Nov 2026",
+        isNew: true,
+        pdfUrl: "https://drive.google.com/"
+      },
+      {
+        id: "m4",
+        title: "10th Social Science — History Timeline & Map Marking Full Guide (தமிழ்)",
+        classLevel: "10th",
+        subject: "Social Science",
+        medium: "Tamil Medium",
+        author: "Mrs. K. Deepa, BT Asst",
+        date: "Nov 2026",
+        isNew: false,
+        pdfUrl: "https://drive.google.com/"
+      },
+      {
+        id: "m5",
+        title: "11th Physics — Govt Model & PTA Question Papers with Official Answer Key",
+        classLevel: "11th",
+        subject: "Physics",
+        medium: "English Medium",
+        author: "PG Physics Association",
+        date: "Oct 2026",
+        isNew: false,
+        pdfUrl: "https://drive.google.com/"
+      },
+      {
+        id: "m6",
+        title: "12th Commerce & Accountancy — Top 2, 3 & 5 Mark Expected Questions",
+        classLevel: "12th",
+        subject: "Commerce",
+        medium: "English Medium",
+        author: "Commerce Dept",
+        date: "Oct 2026",
+        isNew: false,
+        pdfUrl: "https://drive.google.com/"
+      },
+      {
+        id: "m7",
+        title: "College CS / IT — Software Engineering, DSA & RDBMS Complete Unit Notes",
+        classLevel: "College",
+        subject: "Computer Science",
+        medium: "English Medium",
+        author: "Guru Prasath",
+        date: "Nov 2026",
+        isNew: true,
+        pdfUrl: "https://drive.google.com/"
+      }
+    ];
+
+    // =========================================================================
+    // 1-MARK PRACTICE QUIZ BANK
+    // =========================================================================
+    const QUIZ_DATA = {
+      "12cs": [
+        { q: "1. Which operator is used for floor division in Python?", opts: ["/", "//", "%", "**"], ans: 1 },
+        { q: "2. Which SQL clause is used to filter grouped records?", opts: ["WHERE", "ORDER BY", "HAVING", "GROUP BY"], ans: 2 },
+        { q: "3. Which Python data type is immutable?", opts: ["List", "Dictionary", "Set", "Tuple"], ans: 3 },
+        { q: "4. CSV stands for:", opts: ["Comma Separated Values", "Column Separated Values", "Common String Variables", "Code Syntax Values"], ans: 0 }
+      ],
+      "10sci": [
+        { q: "1. The SI unit of electric current is:", opts: ["Volt", "Ohm", "Ampere", "Coulomb"], ans: 2 },
+        { q: "2. Magnification of a convex lens is always:", opts: ["Positive", "Negative", "Either positive or negative", "Zero"], ans: 2 },
+        { q: "3. Which acid is present in vinegar?", opts: ["Citric acid", "Acetic acid", "Tartaric acid", "Lactic acid"], ans: 1 },
+        { q: "4. Brain of the human body is protected by:", opts: ["Cranium", "Rib cage", "Sternum", "Pelvis"], ans: 0 }
+      ],
+      "12phy": [
+        { q: "1. The unit of electric dipole moment is:", opts: ["C m", "C m⁻¹", "N C⁻¹", "V m"], ans: 0 },
+        { q: "2. Lenz's law is based on the law of conservation of:", opts: ["Charge", "Mass", "Energy", "Angular momentum"], ans: 2 },
+        { q: "3. Sky appears blue due to:", opts: ["Reflection", "Refraction", "Rayleigh scattering", "Diffraction"], ans: 2 },
+        { q: "4. Majority carriers in a P-type semiconductor are:", opts: ["Electrons", "Holes", "Neutrons", "Positrons"], ans: 1 }
+      ],
+      "12mat": [
+        { q: "1. If A is a 3×3 matrix and |A| = 5, then |adj A| is:", opts: ["5", "25", "125", "15"], ans: 1 },
+        { q: "2. The modulus of the complex number 3 + 4i is:", opts: ["7", "1", "5", "25"], ans: 2 },
+        { q: "3. Derivative of sin(2x) with respect to x is:", opts: ["cos(2x)", "2cos(2x)", "-2cos(2x)", "2sin(2x)"], ans: 1 },
+        { q: "4. The order of the differential equation (d²y/dx²)³ + dy/dx = 0 is:", opts: ["3", "2", "1", "0"], ans: 1 }
+      ]
+    };
+
+    const GUIDES_AFFILIATE = [
+      { label: "12th Samacheer Public Exam Guides", q: "12th samacheer guide tamil nadu" },
+      { label: "10th SSLC All-in-One Question Banks", q: "10th samacheer guide tamil nadu" },
+      { label: "NEET / JEE Foundation Books", q: "neet preparation books tamil nadu" }
+    ];
+
+    let activeClass = "all";
+    let showSavedOnly = false;
+    let savedIds = JSON.parse(localStorage.getItem("kalvideck_saved") || "[]");
+
+    function updateSavedBadge() {
+      document.getElementById("savedCount").textContent = savedIds.length;
+    }
+
+    function toggleBookmark(id) {
+      if (savedIds.includes(id)) {
+        savedIds = savedIds.filter(x => x !== id);
+      } else {
+        savedIds.push(id);
+      }
+      localStorage.setItem("kalvideck_saved", JSON.stringify(savedIds));
+      updateSavedBadge();
+      renderCards();
+    }
+
+    function toggleSavedOnly() {
+      showSavedOnly = !showSavedOnly;
+      document.getElementById("savedToggleBtn").classList.toggle("active", showSavedOnly);
+      renderCards();
+    }
+
+    function renderCards() {
+      const query = document.getElementById("searchInput").value.toLowerCase().trim();
+      const med = document.getElementById("mediumSelect").value;
+      const sub = document.getElementById("subjectSelect").value;
+
+      const list = MATERIALS_DATA.filter(item => {
+        const okSaved = !showSavedOnly || savedIds.includes(item.id);
+        const okClass = activeClass === "all" || item.classLevel === activeClass;
+        const okMed = med === "all" || item.medium === med;
+        const okSub = sub === "all" || item.subject.toLowerCase().includes(sub.toLowerCase());
+        const okQuery = !query ||
+          item.title.toLowerCase().includes(query) ||
+          item.subject.toLowerCase().includes(query) ||
+          item.classLevel.toLowerCase().includes(query) ||
+          item.author.toLowerCase().includes(query);
+        return okSaved && okClass && okMed && okSub && okQuery;
+      });
+
+      document.getElementById("resultChip").textContent = `${list.length} PDFs`;
+      document.getElementById("sectionHeading").textContent = showSavedOnly
+        ? "Your Bookmarked Study Materials"
+        : (activeClass === "all" ? "Latest Study Materials & Question Papers" : `${activeClass} Standard Study Materials`);
+
+      const container = document.getElementById("cardsContainer");
+      if (!list.length) {
+        container.innerHTML = `<div style="grid-column:1/-1; background:var(--surface); border:1.5px solid var(--border); border-radius:16px; padding:2rem; text-align:center; color:var(--ink-muted);">No study materials match your filter. Try resetting filters or unchecking Saved.</div>`;
+        return;
+      }
+
+      container.innerHTML = list.map(item => {
+        const isSaved = savedIds.includes(item.id);
+        return `
+          <article class="doc-card">
+            <div>
+              <div class="doc-top">
+                <div class="pill-group">
+                  <span class="chip chip-class">${item.classLevel}</span>
+                  <span class="chip chip-sub">${item.subject}</span>
+                  <span class="chip ${item.medium === 'Tamil Medium' ? 'chip-tm' : 'chip-em'}">${item.medium === 'Tamil Medium' ? 'TM' : 'EM'}</span>
+                  ${item.isNew ? '<span class="chip chip-new">NEW</span>' : ''}
+                </div>
+                <button class="star-btn ${isSaved ? 'saved' : ''}" title="Save PDF" onclick="toggleBookmark('${item.id}')">
+                  ${isSaved ? '&#9733;' : '&#9734;'}
+                </button>
+              </div>
+              <h3 class="doc-title">${item.title}</h3>
+              <p class="doc-author">By ${item.author} &bull; ${item.date}</p>
+            </div>
+            <div class="doc-foot">
+              <span class="file-tag">PDF &bull; FREE</span>
+              <a class="btn-download" href="${item.pdfUrl}" target="_blank" rel="noopener">Download &darr;</a>
+            </div>
+          </article>
+        `;
+      }).join("");
+    }
+
+    function applyShortcut(cls, subj) {
+      showSavedOnly = false;
+      document.getElementById("savedToggleBtn").classList.remove("active");
+      activeClass = cls;
+      document.querySelectorAll(".class-tile").forEach(t => {
+        t.classList.toggle("active", t.dataset.class === cls);
+      });
+      document.getElementById("subjectSelect").value = subj;
+      renderCards();
+    }
+
+    // Quiz Engine
+    function renderQuiz() {
+      const topic = document.getElementById("quizTopic").value;
+      const qs = QUIZ_DATA[topic] || [];
+      const resBox = document.getElementById("quizResult");
+      resBox.style.display = "none";
+
+      document.getElementById("quizBody").innerHTML = qs.map((item, qi) => `
+        <div class="q-box">
+          <div class="q-title">${item.q}</div>
+          ${item.opts.map((opt, oi) => `
+            <label class="opt-row" id="opt-${qi}-${oi}">
+              <input type="radio" name="quiz_q_${qi}" value="${oi}" />
+              <span>${opt}</span>
+            </label>
+          `).join("")}
+        </div>
+      `).join("");
+    }
+
+    function evaluateQuiz() {
+      const topic = document.getElementById("quizTopic").value;
+      const qs = QUIZ_DATA[topic] || [];
+      let score = 0;
+
+      qs.forEach((item, qi) => {
+        const picked = document.querySelector(`input[name="quiz_q_${qi}"]:checked`);
+        item.opts.forEach((_, oi) => {
+          const row = document.getElementById(`opt-${qi}-${oi}`);
+          row.classList.remove("is-correct", "is-wrong");
+          if (oi === item.ans) row.classList.add("is-correct");
+        });
+        if (picked) {
+          const val = parseInt(picked.value, 10);
+          if (val === item.ans) score++;
+          else document.getElementById(`opt-${qi}-${val}`).classList.add("is-wrong");
+        }
+      });
+
+      const resBox = document.getElementById("quizResult");
+      resBox.style.display = "block";
+      resBox.textContent = `Score: ${score} / ${qs.length} (${Math.round((score / qs.length) * 100)}%) — Correct answers are highlighted in green.`;
+    }
+
+    // Admin Modal
+    function toggleAdminModal(open) {
+      document.getElementById("adminModal").classList.toggle("open", open);
+    }
+
+    function buildSnippet() {
+      const entry = {
+        id: "m" + Date.now().toString().slice(-4),
+        title: document.getElementById("inTitle").value.trim() || "New Study Material PDF",
+        classLevel: document.getElementById("inClass").value,
+        subject: document.getElementById("inSub").value.trim() || "General",
+        medium: document.getElementById("inMed").value,
+        author: document.getElementById("inAuthor").value.trim() || "Faculty",
+        date: "Nov 2026",
+        isNew: true,
+        pdfUrl: document.getElementById("inUrl").value.trim() || "https://drive.google.com/"
+      };
+      const text = JSON.stringify(entry, null, 2) + ",";
+      document.getElementById("outCode").value = text;
+      navigator.clipboard.writeText(text);
+      alert("Copied! Paste this at the top of MATERIALS_DATA in GitHub.");
+    }
+
+    // Wire up listeners
+    document.querySelectorAll(".class-tile").forEach(tile => {
+      tile.addEventListener("click", () => {
+        document.querySelectorAll(".class-tile").forEach(t => t.classList.remove("active"));
+        tile.classList.add("active");
+        activeClass = tile.dataset.class;
+        renderCards();
+      });
+    });
+
+    document.getElementById("searchInput").addEventListener("input", renderCards);
+    document.getElementById("mediumSelect").addEventListener("change", renderCards);
+    document.getElementById("subjectSelect").addEventListener("change", renderCards);
+
+    document.getElementById("waBtn").href = CONFIG.whatsappChannel;
+    document.getElementById("affiliateBox").innerHTML = GUIDES_AFFILIATE.map(g => `
+      <li><a href="https://www.amazon.in/s?k=${encodeURIComponent(g.q)}&tag=${CONFIG.amazonTag}" target="_blank" rel="noopener"><span>${g.label}</span><span>&nearr;</span></a></li>
+    `).join("");
+
+    const today = new Date();
+    document.getElementById("liveDate").textContent = today.toLocaleDateString("en-IN", { day: "2-digit", month: "short", year: "numeric" });
+    document.getElementById("footerYear").textContent = today.getFullYear();
+
+    updateSavedBadge();
+    renderCards();
+    renderQuiz();
+  </script>
+</body>
+</html>
